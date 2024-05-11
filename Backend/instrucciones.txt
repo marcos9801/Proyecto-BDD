@@ -1,4 +1,5 @@
 Se tiene que ejecutar el server  de backend para que funcione el front end
+todo esto desde la ruta Proyecto-BDD/Backend/
 
 1) creacion entrono virutal
 python3 -m venv venv
