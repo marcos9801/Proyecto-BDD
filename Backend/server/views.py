@@ -34,7 +34,3 @@ def register(request):
     else: 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     return Response ({})
-
-@api_view(['POST'])
-def profile(request):
-    return Response ({})

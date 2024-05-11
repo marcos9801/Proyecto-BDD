@@ -1,3 +1,5 @@
+Se tiene que ejecutar el server  de backend para que funcione el front end
+
 1) creacion entrono virutal
 python3 -m venv venv
 2) activar entorno 
@@ -5,6 +7,7 @@ venv\Scripts\activate
 3) instalar librerias
 pip install django 
 pip install djangorestframework
+pip install django-cors-headers
 4) correr proyecto
 python3 manage.py migrate
 5) crear usuario
@@ -15,3 +18,4 @@ python3 manage.py runserver
 http://localhost:8000/admin/
 8) ingresar con usuario creado
 9) crear usuario y token
+
