@@ -1,0 +1,66 @@
+body {
+  background-color: black;
+  color: black;
+  font-family: "inter";
+  font-size: "20px";
+}
+
+.login > h1 {
+  margin: 20px 20px;
+}
+
+body {
+  background-color: rgb(108, 129, 148);
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.login {
+  background-color: rgba(248, 248, 248, 0.8);
+  width: 400px;
+  position: absolute;
+  padding: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgb(1, 1, 29), 0 6px 20px 0 rgb(7, 2, 36);
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 10px;
+  width: 250px;
+  background: none;
+  border: 2px solid black;
+  border-radius: 15px;
+  transition: 0.8s;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  border-left: 40px solid black;
+}
+
+.login input[type="submit"] {
+  background: none;
+  border: 2px solid black;
+  padding: 10px 10px;
+  width: 100px;
+  margin: 10px 10px;
+  border-radius: 15px;
+  transition: 0.6s;
+}
+
+.login input[type="submit"]:hover {
+  background-color: rgb(0, 0, 0);
+  color: lightblue;
+}
