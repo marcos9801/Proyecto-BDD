@@ -1,0 +1,41 @@
+
+.contenedor-producto {
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+}
+
+.tarjeta-producto {
+    align-items: center;
+    width: 180px;
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tarjeta-producto img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.tarjeta-producto .categoria {
+    font-style: italic;
+}
