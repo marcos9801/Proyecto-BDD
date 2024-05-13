@@ -23,4 +23,5 @@ urlpatterns = [
     re_path('register', views.register),
     path('clientes/', include('clientes.urls')),
     path('productos/', include('productos.urls')),
+    path('apartados/', include('apartado.urls')),
 ]
