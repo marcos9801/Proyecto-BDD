@@ -59,7 +59,6 @@ def eliminar_cliente(request):
     cliente.delete()
     return Response({'mensaje': 'Cliente eliminado'}, status=status.HTTP_200_OK)
 #actualizar cliente
-
 @api_view(['PUT'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])

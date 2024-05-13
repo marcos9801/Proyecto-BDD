@@ -2,10 +2,11 @@ from django.db import models
 
 # Create your models here.
 class Apartado(models.Model):
+    cliente=models.ForeignKey('clientes.Cliente', on_delete=models.CASCADE)
     fecha_apartado=models.DateField()
     status=models.IntegerField()
     fecha_limite=models.DateField()
-    total=models.DecimalField(max_digits=10, decimal_places=2)
+    total=models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     productos=models.ManyToManyField('productos.Producto', through='detallesApartado') 
 
     def __str__(self):

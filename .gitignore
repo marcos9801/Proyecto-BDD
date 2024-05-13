@@ -8,4 +8,5 @@ __pycache__
 staticfiles/
 media/
 venv/
-.sqlite3
+Backend/db.sqlite3
+migrations/
