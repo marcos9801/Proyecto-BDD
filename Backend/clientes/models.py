@@ -2,6 +2,7 @@ from django.db import models
 
 
 
+
 class Direccion(models.Model):
     direccion = models.CharField(max_length=255 )
     colonia =models.CharField(max_length=100)
