@@ -7,13 +7,14 @@ class ProductoField(serializers.RelatedField):
 
 class ApartadoSerializer(serializers.ModelSerializer):
     productos = ProductoField(many=True, read_only=True)
+    cliente = serializers.StringRelatedField()
     class Meta:
         model = Apartado
         fields = '__all__'
 class ApartadoSerializerEntrada(serializers.ModelSerializer):
     class Meta:
         model = Apartado
-        fields = 'fecha_apartado', 'status', 'fecha_limite'
+        fields = 'cliente','fecha_apartado', 'status', 'fecha_limite'
 
 class detallesApartadoSerializer(serializers.ModelSerializer): 
     fecha_apartado = serializers.DateField()

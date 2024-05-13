@@ -1,8 +1,9 @@
 from django.db import models
+from clientes.models import Cliente
 
 # Create your models here.
 class Apartado(models.Model):
-    cliente=models.ForeignKey('clientes.Cliente', on_delete=models.CASCADE)
+    cliente=models.ForeignKey(Cliente, on_delete=models.CASCADE)
     fecha_apartado=models.DateField()
     status=models.IntegerField()
     fecha_limite=models.DateField()

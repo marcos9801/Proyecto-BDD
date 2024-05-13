@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from .models import Apartado, detallesApartado
 from django.db import transaction
 from productos.models import  Producto
+from clientes.models import Cliente
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from rest_framework import status
@@ -31,6 +32,7 @@ def apartados(request):
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def anadir_apartado(request):
+    cliente_id = get_object_or_404(Cliente, id=request.data.get('cliente'))
     productos = request.data.get('productos')
     if not productos:
         return Response({'mensaje': 'No se han proporcionado productos'}, status=status.HTTP_400_BAD_REQUEST)
@@ -82,4 +84,7 @@ def actualizar_apartado(request):
     id = request.data.get('id')
     if not id:
         return Response({'mensaje': 'No se ha proporcionado un id'}, status=status.HTTP_400_BAD_REQUEST)
+    apartado = get_object_or_404(Apartado, id=id)
+    productos = detallesApartado.objects.filter(apartado=apartado)
+
     
