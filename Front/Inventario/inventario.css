@@ -1,11 +1,17 @@
 
-.contenedor-producto {
+#contenedor-productos {
     width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content:left;
 }
-
+.contenedor-botones{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+}
 .tarjeta-producto {
     align-items: center;
     width: 180px;

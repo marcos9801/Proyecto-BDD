@@ -9,7 +9,7 @@ class Categoria(models.Model):
     
 class Producto(models.Model):
     categoria=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    imagen=models.ImageField()
+    imagen=models.ImageField(upload_to='imagenes/', null=True, blank=True)
     cantidad =models.IntegerField()
     nombre= models.CharField(max_length=100)
     descripcion = models.TextField()
