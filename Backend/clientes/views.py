@@ -8,8 +8,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from  rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from .serializers import ClienteSerializer
-from drf_yasg.utils import swagger_auto_schema
-@swagger_auto_schema(method='GET', responses={200: ClienteSerializer(many=True)})
+
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -28,7 +27,6 @@ def clientes(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 #anadir cliente
 
-@swagger_auto_schema(method='POST', request_body=ClienteSerializer, responses={201: ClienteSerializer()})
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -53,7 +51,6 @@ def anadir_cliente(request):
         return Response({'mensaje': 'Cliente añadido con direccion'}, status=status.HTTP_201_CREATED)
 #eliminar cliente
 
-@swagger_auto_schema(method='DELETE', request_body=ClienteSerializer, responses={200: ClienteSerializer()})
 @api_view(['DELETE'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -65,7 +62,6 @@ def eliminar_cliente(request):
     cliente.delete()
     return Response({'mensaje': 'Cliente eliminado'}, status=status.HTTP_200_OK)
 #actualizar cliente
-@swagger_auto_schema(method='PUT', request_body=ClienteSerializer, responses={200: ClienteSerializer()})
 @api_view(['PUT'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])

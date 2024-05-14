@@ -8,6 +8,11 @@ for (var i = 0; i < cookies.length; i++) {
         break;
     }
 }
+window.onload = function() {
+    boton=document.getElementById('agregar_apartado');
+    boton.addEventListener('click', function() {
+        location.href = `apartado_anadir.html`;
+    });}
 obtener_apartados();
 function obtener_apartados(){
         

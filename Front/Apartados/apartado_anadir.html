@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="../Clientes/clientes.css">
+    <script src="anadir.js"></script>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="../Pagina principal/index.html">Inicio</a></li>
+                <li><a href="../Clientes/clientes.html">Clientes</a></li>
+                <li><a href="../inventario/inventario.html">Inventario</a></li>
+                <li><a href="../Ventas/ventas.html">Ventas</a></li>
+                <li><a href="../Apartados/apartados.html">Apartados</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1 class="titulo">Añadir</h1>
+    <form>
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" name="cliente">
+            
+            <!-- Agrega más opciones según necesites -->
+        </select><br><br>
+        
+        <label for="fecha_limite">Fecha límite:</label>
+        <input type="date" id="fecha_limite" name="fecha_limite"><br><br>
+        
+        <label for="productos">Productos:</label>
+        <div id="contenedor-productos">
+        </div>
+        
+        
+        <input type="submit" value="Enviar" id="ingresar">
+    </form>
+            
+
+</body>
+</html>
