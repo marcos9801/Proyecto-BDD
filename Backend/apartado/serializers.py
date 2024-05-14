@@ -19,6 +19,9 @@ class detallesApartadoSerializer(serializers.ModelSerializer):
             productos_list.append(producto_str)
         representation['productos'] = productos_list
         return representation
+    class Meta:
+        model = Apartado
+        fields = 'cliente', 'fecha_apartado', 'status', 'fecha_limite', 'productos'
 
     def create(self, validated_data):
         productos_data = validated_data.pop('productos')

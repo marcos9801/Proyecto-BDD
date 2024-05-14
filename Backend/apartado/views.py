@@ -11,8 +11,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, authentication_classes, permission_classes, parser_classes
 from  rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.parsers import MultiPartParser, FormParser
+from drf_yasg.utils import swagger_auto_schema
+
 # Create your views here.
+@swagger_auto_schema(method='GET', responses={200: ApartadoSerializer(many=True)})
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -28,6 +30,7 @@ def apartados(request):
         producto=get_object_or_404(Apartado, id=id)
         serializer=ApartadoSerializer(producto, many=False)
     return Response(serializer.data, status=status.HTTP_200_OK)
+@swagger_auto_schema(method='POST', request_body=ApartadoSerializerEntrada, responses={201: ApartadoSerializer()})
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -61,7 +64,7 @@ def anadir_apartado(request):
             serializer = ApartadoSerializer(apartado)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+@swagger_auto_schema(method='DELETE', request_body={'id': 'int'}, responses={200: 'apartado eliminado'})
 @api_view(['DELETE'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -77,6 +80,8 @@ def eliminar_apartado(request):
         producto.producto.save()
     apartado.delete()
     return Response({'mensaje': 'apartado eliminado'}, status=status.HTTP_200_OK)
+
+@swagger_auto_schema(method='PUT', request_body={'id': 'int'}, responses={200: 'apartado actualizado'})
 @api_view(['PUT'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])

@@ -9,6 +9,8 @@ from  rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from .serializers import ProductoSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
+from drf_yasg.utils import swagger_auto_schema
+@swagger_auto_schema(method='GET', responses={200: ProductoSerializer(many=True)})
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -22,7 +24,7 @@ def categorias(request):
         })
   
     return Response(data, status=status.HTTP_200_OK)
-
+@swagger_auto_schema(method='GET', responses={200: ProductoSerializer(many=True)})
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -39,6 +41,7 @@ def productos(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
     
 #anadir producto
+@swagger_auto_schema(method='POST', request_body=ProductoSerializer, responses={201: ProductoSerializer()})
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -56,6 +59,7 @@ def anadir_producto(request):
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+@swagger_auto_schema(method='DELETE', request_body=ProductoSerializer, responses={200: ProductoSerializer()})
 @api_view(['DELETE'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -68,6 +72,7 @@ def eliminar_producto(request):
     return Response({'mensaje': 'Producto eliminado'}, status=status.HTTP_200_OK)
     
 
+@swagger_auto_schema(method='PUT', request_body=ProductoSerializer, responses={200: ProductoSerializer()})
 @api_view(['PUT'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -103,19 +108,3 @@ def modificar_producto(request):
 #Del apartado de ventas
 from django.shortcuts import render, get_object_or_404
 from ventas.models import Venta
-
-def lista_ventas(request):
-    ventas = Venta.objects.all()
-    return render(request, 'ventas/lista_ventas.html', {'ventas': ventas})
-
-def detalle_venta(request, id):
-    venta = get_object_or_404(Venta, pk=id)
-    return render(request, 'ventas/detalle_venta.html', {'venta': venta})
-
-def lista_productos(request):
-    productos = Producto.objects.all()
-    return render(request, 'productos/lista_productos.html', {'productos': productos})
-
-def detalle_producto(request, id):
-    producto = get_object_or_404(Producto, pk=id)
-    return render(request, 'productos/detalle_producto.html', {'producto': producto})
