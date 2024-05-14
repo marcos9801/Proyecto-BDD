@@ -1,73 +1,76 @@
-cookie=document.cookie.substring(document.cookie.lastIndexOf(" token=")+7) ;
-cookie = cookie.substring(0, cookie.indexOf(';'));
-console.log(cookie);
-obtener_apartados();
-var clientes=[];
+var cookies = document.cookie.split(';');
+var cookie = null;
 
-//crea la lista de clientes al abrir la pagina
+for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.startsWith("token=")) {
+        cookie = cookie.substring("token=".length);
+        break;
+    }
+}
+obtener_apartados();
 function obtener_apartados(){
         
-        fetch('http://127.0.0.1:8000/apartados/', {
-        method: 'GET',
+    fetch('http://127.0.0.1:8000/apartados/', {
+    method: 'GET',
+    headers: {
+        'Authorization': `Token ${cookie}` 
+    }
+    }).then(response => response.json())
+    .then(data => {
+        apartados=data;
+        const tabla = document.getElementById('tabla-lista-apartados');
+
+        apartados.forEach(apartados => {
+        const fila = tabla.insertRow(); // Insertar una nueva fila en la tabla
+
+        // Agregar las celdas con los datos del apartados a la fila
+        fila.insertCell().textContent = apartados.id;
+        fila.insertCell().textContent = apartados.fecha_apartado;
+        fila.insertCell().textContent = apartados.fecha_limite;
+        fila.insertCell().textContent = apartados.cliente;
+        fila.insertCell().textContent = apartados.total;
+        
+        const btnEditar = document.createElement('button');
+        btnEditar.id = 'editarapartados_' + apartados.id; 
+        btnEditar.textContent = 'Editar';
+        btnEditar.addEventListener('click', function() {
+            location.href = `editar.html?id=${apartados.id}`; 
+        });
+        fila.insertCell().appendChild(btnEditar);
+
+        const btnEliminar = document.createElement('button');
+        btnEliminar.id = 'eliminarapartados_' + apartados.id; 
+        btnEliminar.textContent = 'eliminar';
+        btnEliminar.addEventListener('click', function() {
+            Eliminarapartados(apartados.id);
+        });
+        fila.insertCell().appendChild(btnEliminar);
+        
+    });
+    })
+    .catch(error => {
+        
+    });
+
+}
+function Eliminarapartados(id) {
+    const data = { id: id };
+    fetch(`http://127.0.0.1:8000/apartados/eliminar`, {
+        method: 'DELETE',
         headers: {
-            'Authorization': `Token ${cookie}` 
-        }
-        }).then(response => response.json())
-        .then(data => {
-            clientes=data;
-            const tabla = document.getElementById('tabla-lista-apartados');
+            'Authorization': `Token ${cookie}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) 
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Hacer algo con la respuesta del servidor si es necesario
+    })
+    .catch(error => {
+        console.error('Error al eliminar apartados:', error);
+    });
+}
 
-            clientes.forEach(apartado => {
-            const fila = tabla.insertRow(); // Insertar una nueva fila en la tabla
-            console.log(apartado);
-            // Agregar las celdas con los datos del cliente a la fila
-            fila.insertCell().textContent = apartado.id;
-            fila.insertCell().textContent = apartado.fecha_apartado;
-            fila.insertCell().textContent = "$ "+apartado.fecha_limite;
-            
-            fila.insertCell().textContent = apartado.cliente;
-            fila.insertCell().textContent = "$ "+apartado.total;
-
-            const btnEditar = document.createElement('button');
-            btnEditar.id = 'editarapartado_' + apartado.id; 
-            btnEditar.textContent = 'Editar';
-            btnEditar.addEventListener('click', function() {
-                location.href = `editar.html?id=${apartado.id}`; 
-            });
-            fila.insertCell().appendChild(btnEditar);
-
-            const btnEliminar = document.createElement('button');
-            btnEliminar.id = 'eliminarapartado_' + apartado.id; 
-            btnEliminar.textContent = 'eliminar';
-            btnEliminar.addEventListener('click', function() {
-                EliminarCliente(cliente.id);
-            });
-            fila.insertCell().appendChild(btnEliminar);
-            
-        });
-        })
-        .catch(error => {
-            
-        });
-
-    }
-    function Eliminarapartado(id) {
-        const data = { id: id };
-        fetch(`http://127.0.0.1:8000/apartados/eliminar`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Token ${cookie}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data) 
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Hacer algo con la respuesta del servidor si es necesario
-        })
-        .catch(error => {
-            console.error('Error al eliminar cliente:', error);
-        });
-    }
-    
 

@@ -1,5 +1,15 @@
-cookie=document.cookie.substring(document.cookie.lastIndexOf(" token=")+7) ;
-cookie = cookie.substring(0, cookie.indexOf(';'));
+var cookies = document.cookie.split(';');
+var cookie = null;
+
+for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.startsWith("token=")) {
+        cookie = cookie.substring("token=".length);
+        break;
+    }
+}
+
+console.log(cookie);
 document.addEventListener("DOMContentLoaded", function() {
     cargarCategorias();
     obtenerProductos();
