@@ -27,7 +27,7 @@
             return;
           }
           document.cookie = `token=${token}; path=/`;
-          window.location.href = '../Pagina principal/principal.html';
+          window.location.href = '../Inicio/inicio.html';
           // Guardar el token en el almacenamiento local (LocalStorage o Cookies)
         })
         .catch(error => {
