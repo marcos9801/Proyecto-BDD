@@ -1,6 +1,5 @@
-// Obtener la cookie de autenticación
-const cookie = document.cookie.substring(document.cookie.lastIndexOf("token=") + 6);
-
+cookie=document.cookie.substring(document.cookie.lastIndexOf(" token=")+7) ;
+cookie = cookie.substring(0, cookie.indexOf(';'));
 // Variable para almacenar los productos
 let productos = [];
 

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
-    <script src="script.js"></script>
+    <title>Inventario</title>
+    <script src="apartados.js"></script>
 </head>
 <body>
-    
     <div>
         <nav>
             <ul>
@@ -19,23 +18,22 @@
             </ul>
         </nav>
     </div>
-        <hr>
-        <h1>Clientes</h1>
-        <a href="anadir_cliente.html">Agregar cliente</a>
-        <div id="lista-clientes">
-            <table border="3" id="tabla-lista-clientes">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Telefono</th>
-                        <th>Direccion</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-
+    <hr>
+    <h1>Apartados</h1>
+    <div id="lista-clientes">
+        <button id="agregar_apartado" title="Anadir apartado">Añadir apartado</button>
+        <table border="3" id="tabla-lista-apartados">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha </th>
+                    <th>Fecha Limite </th>
+                    <th>Nombre Ciente</th>
+                    <th>Cantidad Total</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
     
 </body>
 </html>

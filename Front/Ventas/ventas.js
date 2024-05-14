@@ -1,13 +1,13 @@
 cookie=document.cookie.substring(document.cookie.lastIndexOf(" token=")+7) ;
 cookie = cookie.substring(0, cookie.indexOf(';'));
 console.log(cookie);
-obtener_clientes();
+obtener_ventas();
 var clientes=[];
 
 //crea la lista de clientes al abrir la pagina
-function obtener_clientes(){
+function obtener_ventas(){
         
-        fetch('http://127.0.0.1:8000/clientes/', {
+        fetch('http://127.0.0.1:8000/ventas/', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${cookie}` 
@@ -15,33 +15,27 @@ function obtener_clientes(){
         }).then(response => response.json())
         .then(data => {
             clientes=data;
-            const tabla = document.getElementById('tabla-lista-clientes');
+            const tabla = document.getElementById('tabla-lista-ventas');
 
-            clientes.forEach(cliente => {
+            clientes.forEach(venta => {
             const fila = tabla.insertRow(); // Insertar una nueva fila en la tabla
-
+            console.log(venta);
             // Agregar las celdas con los datos del cliente a la fila
-            fila.insertCell().textContent = cliente.id;
-            fila.insertCell().textContent = cliente.nombre;
-            fila.insertCell().textContent = cliente.correo;
-            fila.insertCell().textContent = cliente.telefono;
-            if (cliente.direccion === null) {
-                fila.insertCell().textContent = 'N/A';
-            }
-            else{
-                fila.insertCell().textContent = cliente.direccion.direccion +  ', ' + cliente.direccion.codigo_postal+ ', ' +cliente.direccion.colonia+', '+ cliente.direccion.ciudad   + ', '+cliente.direccion.estado+', ' + cliente.direccion.pais ;
-            }
-            // Agregar un botón de editar en la última celda de la fila
+            fila.insertCell().textContent = venta.id;
+            fila.insertCell().textContent = venta.fecha_venta;
+            fila.insertCell().textContent = "$ "+venta.total;
+            fila.insertCell().textContent = venta.cliente;
+
             const btnEditar = document.createElement('button');
-            btnEditar.id = 'editarCliente_' + cliente.id; 
+            btnEditar.id = 'editarVenta_' + venta.id; 
             btnEditar.textContent = 'Editar';
             btnEditar.addEventListener('click', function() {
-                location.href = `editar.html?id=${cliente.id}`; 
+                location.href = `editar.html?id=${venta.id}`; 
             });
             fila.insertCell().appendChild(btnEditar);
 
             const btnEliminar = document.createElement('button');
-            btnEliminar.id = 'eliminarCliente_' + cliente.id; 
+            btnEliminar.id = 'eliminarVenta_' + venta.id; 
             btnEliminar.textContent = 'eliminar';
             btnEliminar.addEventListener('click', function() {
                 EliminarCliente(cliente.id);
@@ -55,9 +49,9 @@ function obtener_clientes(){
         });
 
     }
-    function EliminarCliente(id) {
+    function EliminarVenta(id) {
         const data = { id: id };
-        fetch(`http://127.0.0.1:8000/clientes/eliminar`, {
+        fetch(`http://127.0.0.1:8000/ventas/eliminar`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Token ${cookie}`,
