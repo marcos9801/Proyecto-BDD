@@ -12,11 +12,10 @@ for (var i = 0; i < cookies.length; i++) {
 console.log(cookie);
 document.addEventListener("DOMContentLoaded", function() {
     cargarCategorias();
-    
+
     document.getElementById("submit").addEventListener('click', agregarProducto);
     
 });
-
 async function agregarProducto() {
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
@@ -26,7 +25,6 @@ async function agregarProducto() {
     const imagenInput = document.getElementById("imagen");
     const imagen = imagenInput.files[0]; // Obtener el primer archivo seleccionado
     const material = document.getElementById("material").value;
-
     // Crear un objeto FormData para enviar los datos del formulario, incluida la imagen
     var formData = new FormData();
     formData.append('nombre', nombre);
@@ -55,10 +53,6 @@ async function agregarProducto() {
     }
     
 }
-
-
-
-
 async function cargarCategorias() {
     try {
     const response = await fetch("http://127.0.0.1:8000/productos/categorias", {

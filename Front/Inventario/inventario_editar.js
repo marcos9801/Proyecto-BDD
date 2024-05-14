@@ -52,7 +52,6 @@ async function cargarCategorias() {
         console.error("Error al cargar las categorías:", error);
     }
 }
-
 async function actualizarProducto() {
     const id = producto.id;
     const nombre = document.getElementById("nombre").value;
@@ -63,7 +62,6 @@ async function actualizarProducto() {
     const imagenInput = document.getElementById("imagen");
     const imagen = imagenInput.files[0]; // Obtener el primer archivo seleccionado
     const material = document.getElementById("material").value;
-
     // Crear un objeto FormData para enviar los datos del formulario, incluida la imagen
     const formData = new FormData();
     formData.append('id', id);
@@ -74,7 +72,6 @@ async function actualizarProducto() {
     formData.append('descripcion', descripcion);
     formData.append('material', material);
     formData.append('imagen', imagen);
-
     try {
         const response = await fetch("http://127.0.0.1:8000/productos/editar", {
             method: "PUT", // Cambiado de PUT a POST
@@ -93,13 +90,10 @@ async function actualizarProducto() {
         console.error("Error:", error);
     }
 };
-
 async function obtenerProductos() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     console.log(id);
-
-
     try{
         const response = await fetch(`http://127.0.0.1:8000/productos/?id=${id}`, {
             method: 'GET',
@@ -125,5 +119,3 @@ async function obtenerProductos() {
     }
         
 }
-
-
