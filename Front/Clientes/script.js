@@ -45,7 +45,7 @@ function obtener_clientes(){
             btnEditar.id = 'editarCliente_' + cliente.id; 
             btnEditar.textContent = 'Editar';
             btnEditar.addEventListener('click', function() {
-                location.href = `editar.html?id=${cliente.id}`; 
+                loadPage(`../Clientes/editar.html?id=${cliente.id}`);
             });
             fila.insertCell().appendChild(btnEditar);
 
