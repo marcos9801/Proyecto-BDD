@@ -1,66 +1,97 @@
-body {
-  background-color: black;
-  color: black;
-  font-family: "inter";
-  font-size: "20px";
-}
-
-.login > h1 {
-  margin: 20px 20px;
+:root {
+    --primary: #111B54;
+    --light: #ffffff;
+    --grey: #efefef;
 }
 
 body {
-  background-color: rgb(108, 129, 148);
-  height: 100%;
-  width: 100%;
-  opacity: 0.8;
+    overflow: hidden;
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
+    color: var(--primary);
 }
 
-.login {
-  background-color: rgba(248, 248, 248, 0.8);
-  width: 400px;
-  position: absolute;
-  padding: 40px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.nav-pills li a:hover{
+    background-color: #a98972;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.bg-primary { background-color: var(--primary) !important; }
+
+.bg-light { background-color: var(--light) !important; }
+
+.bg-grey { background-color: var(--grey) !important; }
+
+.bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
+
+.btn-primary {
+    background-color: var(--primary);
+    border: 0;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    
+}
   
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  box-shadow: 0 4px 8px 0 rgb(1, 1, 29), 0 6px 20px 0 rgb(7, 2, 36);
+#sidebar-container .logo{
+    padding: 0.875rem 1.25rem;
+}
+  
+#sidebar-container .menu {
+    width: 20%; /* Cambia el valor del ancho según tus necesidades */
 }
 
-.login input[type="text"],
-.login input[type="password"] {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 10px;
-  width: 250px;
-  background: none;
-  border: 2px solid black;
-  border-radius: 15px;
-  transition: 0.8s;
+.sidebar{
+    background-color: #605044;
 }
 
-.login input[type="text"]:focus,
-.login input[type="password"]:focus {
-  border-left: 40px solid black;
+.titulo{
+    color: #605044;
 }
 
-.login input[type="submit"] {
-  background: none;
-  border: 2px solid black;
-  padding: 10px 10px;
-  width: 100px;
-  margin: 10px 10px;
-  border-radius: 15px;
-  transition: 0.6s;
+
+
+
+#content {
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 5rem;
 }
 
-.login input[type="submit"]:hover {
-  background-color: rgb(0, 0, 0);
-  color: lightblue;
+.avatar {
+    max-width: 35px;
 }
+
+.btn-search {
+    right: 0;
+}
+
+.stat {
+    border-right: 1px solid var(--grey);
+}
+
+.barra{
+    width: 90%;
+}
+
+.logo {
+    padding: 20px; /* Ajusta el valor según sea necesario */
+}
+
+  
+@media (max-width: 768px) {
+    #sidebar-container {
+      display: none;
+    }
+    .stat {
+        border: 0;
+    }
+  }
