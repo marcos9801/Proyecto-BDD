@@ -38,13 +38,13 @@ def anadir_venta(request):
     serializer = VentaSerializerEntrada(data=request.data)
     if serializer.is_valid():
         with transaction.atomic():
-            apartado = serializer.save()
+            venta = serializer.save()
             total = 0
             for producto_str in productos:
                 producto_id, cantidad= map(float, producto_str.split(' - '))
                 producto = get_object_or_404(Producto, id=producto_id)
                 DetalleVenta.objects.create(
-                    apartado=apartado,
+                    venta=venta,
                     producto=producto,
                     cantidad=cantidad,
                     subtotal=cantidad * producto.precio
@@ -54,10 +54,10 @@ def anadir_venta(request):
                 producto.save()
                 total += cantidad * producto.precio
             # Actualizar el total del apartado
-            apartado.total = total
-            apartado.save()
+            venta.total = total
+            venta.save()
             # Serializar el objeto apartado para la respuesta
-            serializer = VentaSerializer(apartado)
+            serializer = VentaSerializer(venta)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     

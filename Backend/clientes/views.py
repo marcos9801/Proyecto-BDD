@@ -44,8 +44,9 @@ def anadir_cliente(request):
         estado = request.data.get('estado')
         colonia = request.data.get('colonia')
         codigo_postal = request.data.get('codigo_postal')
-        cliente = Cliente.objects.create(nombre=nombre, correo=correo, telefono=telefono)
-        Direccion.objects.create(cliente=cliente, direccion=direccion, ciudad=ciudad, pais=pais, estado=estado, codigo_postal=codigo_postal, colonia=colonia)
+        direc= Direccion.objects.create(direccion=direccion, ciudad=ciudad, pais=pais, estado=estado, codigo_postal=codigo_postal, colonia=colonia)
+        cliente = Cliente.objects.create(nombre=nombre, correo=correo, telefono=telefono, direccion=direc)
+        
         return Response({'mensaje': 'Cliente añadido con direccion'}, status=status.HTTP_201_CREATED)
 #eliminar cliente
 @api_view(['DELETE'])
