@@ -1,17 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Georama">
-    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">    
+    <title>Login | Hecoss</title>
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
+    
   </head>
+
   <body>
-    <div class="bg"></div>
-    <form class="login" id="loginForm">
-      <h1><b>Login</b></h1>
-      <input type="text" id="user" placeholder="Usuario" />
-      <input type="password" id="password" placeholder="Contraseña" />
-      <input type="submit" value="Login" />
-    </form>
-    <script src="script.js"></script>
+    <div class="row contenedor-formulario contenedor">
+      <div class="col imagen-formulario">
+        <img src="img/03.jpg" width="200" alt="">
+      </div>
+
+      <form class="col login" id="loginForm">
+          <div class=" texto-formulario">
+            <img class="logo" src="img/02logo.png" width="150" alt="">
+              <h2>BIENVENIDO</h2>
+          </div>
+          <div class="input">
+              <label for="usuario">Usuario</label>
+              <input placeholder="Ingresa tu usuario" type="text" id="user">
+          </div>
+          <div class="input">
+              <label for="contraseña">Contraseña</label>
+              <input placeholder="Ingresa tu contraseña" type="password" id="password">
+          </div>
+          <div class="input">
+              <input type="submit" value="Login">
+          </div>
+      </form>
+  </div>
+  <script src="script.js"></script>
   </body>
+
 </html>
