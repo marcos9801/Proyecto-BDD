@@ -1,66 +1,114 @@
+:root{
+  --café: brown;
+}
+
 body {
-  background-color: black;
+  background-image: url('./img/01fondo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
   color: black;
-  font-family: "inter";
+  font-family: Verdana;
   font-size: "20px";
 }
 
-.login > h1 {
-  margin: 20px 20px;
-}
-
-.bg {
-  background-color: rgb(108, 129, 148);
-  height: 100%;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.login {
+.contenedor {
   background-color: rgba(248, 248, 248, 0.8);
-  width: 400px;
+  width: 60%;
   position: absolute;
-  padding: 40px;
+  padding: 25px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgb(1, 1, 29);
+}
+
+
+.row {
+  display: flex;
+  align-items: stretch;
+}
+
+.col {
+  flex: 1;
+}
+
+.imagen {
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  object-fit: cover; /* Ajuste de objeto para cubrir */
+  position: absolute; /* Posición absoluta */
+  top: 0; /* Desde la parte superior */
+  left: 0; /* Desde la izquierda */
+}
+
+/* Añade esta regla CSS */
+.imagen-formulario {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen-formulario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  display: block; /* Para que ocupe su propio espacio */
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+
+h2{
   text-align: center;
-  
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  box-shadow: 0 4px 8px 0 rgb(1, 1, 29), 0 6px 20px 0 rgb(7, 2, 36);
+}
+
+label{
+  text-align: left;
+  margin-left: 20px;
 }
 
 .login input[type="text"],
 .login input[type="password"] {
   display: block;
-  margin: 20px auto;
+  margin-left: 25px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   padding: 10px 10px;
-  width: 250px;
+  width: 90%;
   background: none;
-  border: 2px solid black;
-  border-radius: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
   transition: 0.8s;
 }
 
 .login input[type="text"]:focus,
 .login input[type="password"]:focus {
-  border-left: 40px solid black;
+  border: 1px solid lightgray;
+  border-left: 25px solid #E8DDD5;
 }
 
 .login input[type="submit"] {
   background: none;
-  border: 2px solid black;
+  border: 1px solid lightgray;
+  background-color: #605044;
+  color: white;
   padding: 10px 10px;
-  width: 100px;
-  margin: 10px 10px;
-  border-radius: 15px;
+  width: 95%; /* Anchura del botón */
+  border-radius: 5px;
   transition: 0.6s;
+  margin-left: 25px;
+  margin-top: 20px;
 }
 
+
 .login input[type="submit"]:hover {
-  background-color: rgb(0, 0, 0);
-  color: lightblue;
+  background-color: #E8DDD5;
+  border: none;
+  color: #605044;
 }
