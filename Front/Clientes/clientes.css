@@ -1,0 +1,277 @@
+/*MENU*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+	body{
+		/*background: url(../Login/img/01fondo.png);*/
+        background-color: whitesmoke;
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
+	}
+	/*Estilos para el encabezado*/
+	.header{
+		width: 100%;
+		height: 100px;
+		position: fixed;
+		top: 0;left: 0;
+        background-color: #f5f0eb;
+	}
+	.container{
+		width: 90%;
+		max-width: 1200px;
+		margin: auto;
+	}
+	.container .btn-menu, .logo{
+		float: left;
+		line-height:100px;
+	}
+	.container .btn-menu label{
+		color: #605044;
+		font-size: 25px;
+		cursor: pointer;
+	}
+	.logo h1{
+		color: #605044;
+		font-weight: 400;
+		font-size: 22px;
+		margin-left: 10px;
+	}
+	.container .menu{
+		float: right;
+		line-height: 100px;
+	}
+	.container .menu a{
+		display: inline-block;
+		padding: 15px;
+		line-height: normal;
+		text-decoration: none;
+		color: #605044;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+	.container .menu a:hover{
+		border-bottom: 2px solid #c7c7c7;
+		padding-bottom: 5px;
+	}
+	/*Fin de Estilos para el encabezado*/
+
+	/*Menù lateral*/
+	#btn-menu{
+		display: none;
+	}
+	.container-menu{
+		position: absolute;
+		background: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 100vh;
+		top: 0;left: 0;
+		transition: all 500ms ease;
+		opacity: 0;
+		visibility: hidden;
+	}
+	#btn-menu:checked ~ .container-menu{
+		opacity: 1;
+		visibility: visible;
+	}
+	.cont-menu{
+		width: 100%;
+		max-width: 250px;
+		background: #605044;
+		height: 100vh;
+		position: relative;
+		transition: all 500ms ease;
+		transform: translateX(-100%);
+	}
+	#btn-menu:checked ~ .container-menu .cont-menu{
+		transform: translateX(0%);
+	}
+	.cont-menu nav{
+		transform: translateY(15%);
+	}
+	.cont-menu nav a{
+		display: block;
+		text-decoration: none;
+		padding: 20px;
+		color: #c7c7c7;
+		border-left: 5px solid transparent;
+		transition: all 400ms ease;
+	}
+	.cont-menu nav a:hover{
+		border-left: 5px solid #c7c7c7;
+		background: #E8DDD5;
+        color: #5F5043;
+	}
+	.cont-menu label{
+		position: absolute;
+		right: 5px;
+		top: 10px;
+		color: #fff;
+		cursor: pointer;
+		font-size: 18px;
+	}
+
+/*CONTENIDO ADICIONAL*/
+
+.contenido-adicional * {
+    font-family: Verdana !important;
+}
+
+
+.contenido-adicional {
+    margin-top: 150px; 
+    margin-left: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+}
+
+.titulo {
+    font-weight: 100;
+    font-size: 80px;
+    margin: 20px;
+    color: #5F5043;
+}
+
+.botonIng {
+    margin-left: 20px;
+    border-radius: 5px;
+    width: 10%;
+    padding: 10px 10px;
+    border: none;
+    border: 1px solid lightgray;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.botonIng:active {
+    background-color: lightblue; /* Cambia el color cuando se selecciona */
+}
+
+.botonIng:hover {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: #605044;
+  }
+
+.tabla01 {
+    margin: 20px;
+}
+
+hr{
+    margin-top: 20px;
+    width: 85%;
+}
+
+.tabla {
+    border-radius: 10px;
+    width: 90%;
+    border-collapse: collapse;
+
+}
+
+.tabla th,
+.tabla td {
+    padding: 10px;
+    text-align: center;
+}
+
+.tabla th {
+    background-color: #f2f2f2;
+}
+
+.tabla tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* clientes.css */
+
+/* Estilos para los botones de editar y eliminar */
+.tabla button {
+    border-radius: 10px;
+    border: 1px solid #8B4513; 
+}
+
+/* Estilos para los elementos th */
+.tabla th {
+    color: #605044; /* Texto en blanco */
+}
+
+/* clientes.css */
+
+/* Estilos para los botones de editar y eliminar */
+.tabla button {
+    border-radius: 5px; /* Borde redondo */
+    padding: 5px 10px; /* Ajuste del padding */
+    border: none; /* Quita el borde */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    background-color: white;
+}
+
+.tabla button:hover {
+    background-color: lightgray;
+}
+
+/* clientes.css */
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.fila {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Espacio entre filas */
+}
+
+.concepto {
+    flex: 1; 
+    text-align: left;
+    margin-left: 250px;
+}
+
+.entrada {
+    flex: 2; /* El campo de entrada "entrada" ocupará el doble de espacio que la etiqueta "concepto" */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: right;
+    margin-right: 250px;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: left; /* Centra horizontalmente */
+    align-items: left; /* Centra verticalmente */
+    margin-left: 250px;
+    margin-bottom: 10px; /* Espacio debajo del checkbox */
+}
+
+.boton-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px; /* Espacio encima del botón */
+}
+
+.botonAcep{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    background-color: white;
+    width: 830px;
+}
+
+.boton-container button:hover {
+    background-color: lightgray;
+}
