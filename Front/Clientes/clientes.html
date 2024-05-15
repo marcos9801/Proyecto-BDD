@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../Clientes/clientes.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1 class="titulo">CLIENTES</h1>
-    <button type="button" class="botonIng btn btn-light" onclick="loadPage('../Clientes/anadir_cliente.html');">Agregar cliente</button>
-    <hr>
-    <div id="contenido-dinamico">
-        <!-- Aquí se cargará el contenido dinámico -->
-    </div>
     
-    <div class="tabla01" id="lista-clientes">
-        <table class="tabla" id="tabla-lista-clientes">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-body">
-                <!-- Aquí se insertarán las filas de la tabla -->
-            </tbody>
-        </table>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="../Pagina principal/principal.html">Inicio</a></li>
+                <li><a href="../Clientes/clientes.html">Clientes</a></li>
+                <li><a href="../inventario/inventario.html">Inventario</a></li>
+                <li><a href="../Ventas/ventas.html">Ventas</a></li>
+                <li><a href="../Apartados/apartados.html">Apartados</a></li>
+            </ul>
+        </nav>
     </div>
-
-    <script src="../Clientes/script.js"></script>
+        <hr>
+        <h1>Clientes</h1>
+        <a href="anadir_cliente.html">Agregar cliente</a>
+        <div id="lista-clientes">
+            <table border="3" id="tabla-lista-clientes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    
 </body>
 </html>
