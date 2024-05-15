@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Venta</title>
+    <script src="venta_editar.js"></script>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="../Pagina principal/principal.html">Inicio</a></li>
+                <li><a href="../Clientes/clientes.html">Clientes</a></li>
+                <li><a href="../Inventario/inventario.html">Inventario</a></li>
+                <li><a href="../Ventas/ventas.html">Ventas</a></li>
+                <li><a href="../Apartados/apartados.html">Apartados</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <h1>Editar Venta</h1>
+    <form>
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" required>
+            <!-- Opciones de clientes se cargarán dinámicamente con JavaScript -->
+        </select>
+        <label for="fecha_venta">Fecha de Venta:</label>
+        <input type="date" id="fecha_venta" required>
+        <label for="total">Total:</label>
+        <input type="number" id="total" step="0.01" required>
+        <h2>Detalles de Venta</h2>
+        <!-- Aquí se agregarán dinámicamente los detalles de venta -->
+        <div id="detalles_venta">
+            <!-- Los detalles se agregarán aquí -->
+        </div>
+        <button type="button" id="agregar_detalle">Agregar Producto</button>
+        <hr>
+        <button id="botonGuardar">Guardar</button>
+    </form>
+</body>
+</html>

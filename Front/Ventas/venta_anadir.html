@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Venta</title>
+    <script src="venta_anadir.js"></script>
+</head>
+<body>
+    <h1>Agregar Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="cliente">Cliente:</label>
+        <select name="cliente" id="cliente">
+            {% for cliente in clientes %}
+                <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="fecha_venta">Fecha de Venta:</label>
+        <input type="date" name="fecha_venta" id="fecha_venta" required>
+        <br>
+        <label for="total">Total:</label>
+        <input type="number" name="total" id="total" step="0.01" required>
+        <br>
+        <h2>Detalle de Venta</h2>
+        <div id="detalle_venta">
+            <!-- Los campos del detalle de venta se agregarán dinámicamente aquí -->
+        </div>
+        <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+        <br><br>
+        <button type="submit">Guardar Venta</button>
+    </form>
+</body>
+</html>

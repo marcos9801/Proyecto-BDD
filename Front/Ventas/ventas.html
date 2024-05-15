@@ -3,37 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
-    <script src="ventas.js"></script>
+    <title>Listado de Ventas</title>
 </head>
 <body>
-    <div>
-        <nav>
-            <ul>
-                <li><a href="../Pagina principal/principal.html">Inicio</a></li>
-                <li><a href="../Clientes/clientes.html">Clientes</a></li>
-                <li><a href="../inventario/inventario.html">Inventario</a></li>
-                <li><a href="../Ventas/ventas.html">Ventas</a></li>
-                <li><a href="../Apartados/apartados.html">Apartados</a></li>
-            </ul>
-        </nav>
-    </div>
-    <hr>
-    <h1>Apartados</h1>
-    <div id="lista-clientes">
-        <button id="agregar_apartado" title="Anadir apartado">Añadir apartado</button>
-        <table border="3" id="tabla-lista-ventas">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha </th>
-
-                    <th>Nombre Ciente</th>
-                    <th>Cantidad Total</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    
+    <h1>Listado de Ventas</h1>
+    <button id="btnAgregarVenta">Agregar Venta</button>
+    <table id="tabla-lista-ventas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha de Venta</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se insertarán dinámicamente las filas de ventas -->
+        </tbody>
+    </table>
 </body>
 </html>
