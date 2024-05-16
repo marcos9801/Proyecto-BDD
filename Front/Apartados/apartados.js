@@ -35,7 +35,7 @@ function obtener_apartados(){
         btnEditar.id = 'editarapartados_' + apartados.id; 
         btnEditar.textContent = 'Editar';
         btnEditar.addEventListener('click', function() {
-            location.href = `editar.html?id=${apartados.id}`; 
+            location.href = `apartado_editar.html?id=${apartados.id}`; 
         });
         fila.insertCell().appendChild(btnEditar);
 

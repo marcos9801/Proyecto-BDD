@@ -60,6 +60,7 @@ def anadir_apartado(request):
             # Actualizar el total del apartado
             apartado.total = total
             apartado.save()
+            print(apartado)
             # Serializar el objeto apartado para la respuesta
             serializer = ApartadoSerializer(apartado)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
