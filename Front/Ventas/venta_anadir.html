@@ -38,14 +38,13 @@
     </div>
     <div class="contenido-adicional">
         <h1 class="titulo">Agregar Venta</h1>
-        <form method="post">
-            {% csrf_token %}
+        <form>
             <div class="fila">
                 <label class="concepto" for="cliente">Cliente:</label>
                 <select class="entrada" name="cliente" id="cliente">
-                    {% for cliente in clientes %}
-                        <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
-                    {% endfor %}
+                    <option value="">Seleccionar cliente</option>
+                    
+                    
                 </select>
             </div>
             <div class="fila">
@@ -53,19 +52,14 @@
                 <input class="entrada" type="date" name="fecha_venta" id="fecha_venta" required>
             </div>
             
-            <div class="fila">
-                <label class="concepto" for="total">Total:</label>
-                <input class="entrada" type="number" name="total" id="total" step="0.01" required>
-            </div>
             <br>
             <h2>Detalles de Venta</h2>
             <div id="detalle_venta">
                 <!-- Los campos del detalle de venta se agregarán dinámicamente aquí -->
             </div>
             <br>
-            <button class="botonAcep" type="button" onclick="agregarProducto()">Agregar Producto</button>
             <br><br>
-            <button class="botonAcep" type="submit">Guardar Venta</button>
+            <button id="submit">Guardar Venta</button>
         </form>
     </div>
 </body>

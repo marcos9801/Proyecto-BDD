@@ -8,10 +8,10 @@ for (var i = 0; i < cookies.length; i++) {
         break;
     }
 }
-boton = document.getElementById('btnAgregarVenta');
-boton.addEventListener('click', function(){
-    location.href = 'venta_anadir.html';
-});
+//boton = document.getElementById('btnAgregarVenta');
+//boton.addEventListener('click', function(){
+  //  location.href = 'venta_anadir.html';
+//});
 console.log(cookie);
 obtener_ventas();
 function obtener_ventas(){
@@ -24,7 +24,7 @@ function obtener_ventas(){
     }).then(response => response.json())
     .then(data => {
         ventas=data;
-        const tabla = document.getElementById('tabla-lista-ventas');
+        const tabla = document.getElementById('tabla-lista-clientes');
 
         ventas.forEach(ventas => {
         const fila = tabla.insertRow(); // Insertar una nueva fila en la tabla
