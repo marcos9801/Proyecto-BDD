@@ -6,7 +6,7 @@ from clientes.models import Cliente
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from rest_framework import status
-from .serializers import VentaSerializer, DetalleVentaSerializer, VentaSerializerEntrada
+from .serializers import VentaSerializer, DetalleVentaSerializer, VentaSerializerEntrada, VentaSerializerCant
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, authentication_classes, permission_classes, parser_classes
 from  rest_framework.permissions import IsAuthenticated
@@ -27,7 +27,9 @@ def ventas(request):
         serializer=VentaSerializer(productos, many=True)
     else:
         producto=get_object_or_404(Venta, id=id)
-        serializer=VentaSerializer(producto, many=False)
+        serializer=VentaSerializerCant(producto, many=False)
+        
+    print(serializer.data)
     return Response(serializer.data, status=status.HTTP_200_OK)
 @swagger_auto_schema(method='POST', request_body=VentaSerializerEntrada, responses={201: VentaSerializer()})
 @api_view(['POST'])
@@ -88,7 +90,42 @@ def actualizar_venta(request):
     id = request.data.get('id')
     if not id:
         return Response({'mensaje': 'No se ha proporcionado un id'}, status=status.HTTP_400_BAD_REQUEST)
-    venta = get_object_or_404(Venta, id=id)
-    productos = DetalleVenta.objects.filter(venta=venta)
-
     
+    venta = get_object_or_404(Venta, id=id)
+    
+    # Actualizar los campos de la venta
+    cliente_id = request.data.get('cliente')
+    fecha_venta = request.data.get('fecha_venta')
+    total=0
+    detalles_venta = request.data.get('detalleventa_set', [])
+    
+    if cliente_id:
+        venta.cliente_id = cliente_id
+    if fecha_venta:
+        venta.fecha_venta = fecha_venta
+    
+    venta.save()
+
+    # Actualizar los productos en la venta
+    DetalleVenta.objects.filter(venta=venta).delete()
+    
+    for detalle in detalles_venta:
+        producto_id = detalle.get('producto', {}).get('id')
+        cantidad = detalle.get('cantidad')
+        if producto_id and cantidad:
+            producto = get_object_or_404(Producto, id=producto_id)
+            print(cantidad)
+            print(producto.precio)
+            DetalleVenta.objects.create(
+                venta=venta,
+                producto=producto,
+                cantidad=cantidad,
+                subtotal=float(cantidad) * float(producto.precio)
+            )
+            total += float(cantidad) * float(producto.precio)
+            producto.cantidad -= int(cantidad)
+            producto.save()
+    venta.total = total
+    venta.save()
+
+    return Response({'mensaje': 'Venta actualizada exitosamente'}, status=status.HTTP_200_OK)

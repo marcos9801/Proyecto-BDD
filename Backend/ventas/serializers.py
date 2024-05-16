@@ -1,10 +1,28 @@
 from rest_framework import serializers
 from .models import Venta, DetalleVenta
+from productos.models import Producto
 
+class ProductoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Producto
+        fields = ['id', 'nombre', 'precio']  # Adjust fields as necessary
+class DetalleVentaSerializer(serializers.ModelSerializer):
+    producto = ProductoSerializer(read_only=True)
+
+    class Meta:
+        model = DetalleVenta
+        fields = ['producto', 'cantidad', 'subtotal']
 class ProductoField(serializers.RelatedField):
     def to_representation(self, value):
         return f"{value.id} - {value.nombre} - {value.cantidad}" 
 
+class VentaSerializerCant(serializers.ModelSerializer):
+    detalleventa_set = DetalleVentaSerializer(many=True, read_only=True)
+    
+
+    class Meta:
+        model = Venta
+        fields = '__all__'
 class VentaSerializer(serializers.ModelSerializer):
     productos = ProductoField(many=True, read_only=True)
     cliente = serializers.StringRelatedField()
@@ -45,3 +63,5 @@ class VentaSerializerForCreation(serializers.ModelSerializer):
             producto_id, cantidad, precio = map(float, producto_str.split(' - '))
             DetalleVenta.objects.create(venta=venta, producto_id=producto_id, cantidad=cantidad, subtotal=cantidad * precio)
         return venta
+
+
