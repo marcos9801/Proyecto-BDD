@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Ventas</title>
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">   
+    <title>Ventas | Hecoss</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="ventas.css">
+<<<<<<< HEAD
     <script src="ventas.js"></script>
+=======
+    <script src="../Ventas/ventas.js"></script>
+>>>>>>> aa3e1cab99b34725c1c03737e4713c25bb87d1dd
 </head>
 <body>
     <header class="header">
@@ -36,24 +42,28 @@
             <label for="btn-menu">⨉</label>
         </div>
     </div>
+
+    <!-- Contenido adicional -->
     <div class="contenido-adicional">
-        <h1 class="titulo">Listado de Ventas</h1>
-        <button id="btnAgregarVenta" class="botonIng btn btn-light">Agregar Venta</button>
+        <h1 class="titulo">VENTAS</h1>
+        <button type="button" class="botonIng btn btn-light" onclick="window.location.href='../Ventas/venta_anadir.html';">Agregar venta</button>
         <hr>
-        <table id="tabla-lista-ventas" border="2" class="tabla">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha de Venta</th>
-                    <th>Cliente</th>
-                    <th>Total</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            <!-- Aquí se insertarán dinámicamente las filas de ventas -->
-            </tbody>
-        </table>
+        
+        <div class="tabla01" id="lista-clientes">
+            <table class="tabla" id="tabla-lista-clientes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha de venta</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    <!-- Aquí se insertarán las filas de la tabla -->
+                </tbody>
+            </table>
     </div>
 </body>
 </html>
