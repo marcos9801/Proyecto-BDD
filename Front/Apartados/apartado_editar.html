@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Venta</title>
+    <script src="venta_editar.js"></script>
+    <link rel="stylesheet" href="apartados.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+    <div class="contenido-adicional">
+        <h1 class="titulo">Editar apartado</h1>
+        <form class="formulario">
+            <div class="fila">
+                <label class="concepto" for="cliente">Cliente:</label>
+                <select class="entrada" id="cliente" required>
+                <!-- Opciones de clientes se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="fecha_venta">Fecha de Venta:</label>
+                <input class="entrada" type="date" id="fecha_venta" required>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="total">Total:</label>
+                <input class="entrada" type="number" id="total" step="0.01"  disabled>
+            </div>
+            <h2>Detalles apartado</h2>
+            <br>
+            <!-- Aquí se agregarán dinámicamente los detalles de venta -->
+            <div id="detalles_venta">
+            <!-- Los detalles se agregarán aquí -->
+            </div>
+        
+            <br>
+            <button class="botonAcep" id="botonGuardar">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>
