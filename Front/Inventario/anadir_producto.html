@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">   
+    <title>Catálogo | Hecoss</title>
+    <script src="../Inventario/inventario_anadir.js"></script>
+    <link rel="stylesheet" href="./inventario.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+
+    <!-- Contenido adicional -->
+    <div class="contenido-adicional">
+        <h1 class="titulo">CATÁLOGO</h1>
+        <hr>
+            
+        <form class="formulario">
+            <div class="fila">
+                <label class="concepto" for="categoria">Categoría:</label>
+                <select class="entrada" name="categoria" id="categoria">
+                    <option value=></option>
+                </select>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="imagen">Imagen:</label>
+                <input class="entrada" type="file" name="imagen" id="imagen">
+            </div>
+            <div class="fila">
+                <label class="concepto" for="cantidad">Cantidad:</label>
+                <input class="entrada" type="number" name="cantidad" id="cantidad" required>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="nombre">Nombre:</label>
+                <input class="entrada" type="text" name="nombre" id="nombre" required>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="descripcion">Descripción:</label>
+                <textarea class="entrada" name="descripcion" id="descripcion" cols="30" rows="5" required></textarea>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="precio">Precio:</label>
+                <input class="entrada" type="number" name="precio" id="precio" step="0.01" required>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="material">Material:</label>
+                <input class="entrada" type="text" name="material" id="material" required>
+            </div>
+        </form>
+        
+        <div class="boton-container">
+            <button class="botonAcep" id="botonGuardar">Guardar</button>
+        </div>
+    </div>
+
+</body>
+</html>

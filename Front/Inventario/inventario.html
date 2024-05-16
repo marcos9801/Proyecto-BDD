@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">   
+    <title>HECOSS</title>
+    <link rel="stylesheet" href="./inventario.css">
+    <script src="../Inventario/inventario.js"></script>
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+
+    <!-- Contenido adicional -->
+    <div class="contenido-adicional">
+        <h1 class="titulo">CATÁLOGO</h1>
+        <button type="button" class="botonIng" id="btn-agregar" onclick="window.location.href='../Inventario/anadir_producto.html';">Agregar producto</button>
+        <hr>
+        <div id="contenedor-productos" class="contenedor-productos"> </div>
+    </div>
+    
+
+</body>
+</html>
