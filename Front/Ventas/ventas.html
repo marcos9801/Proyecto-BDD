@@ -4,23 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Ventas</title>
+    <link rel="stylesheet" href="ventas.css">
 </head>
 <body>
-    <h1>Listado de Ventas</h1>
-    <button id="btnAgregarVenta">Agregar Venta</button>
-    <table id="tabla-lista-ventas">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Fecha de Venta</th>
-                <th>Cliente</th>
-                <th>Total</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+    <div class="contenido-adicional">
+        <h1 class="titulo">Listado de Ventas</h1>
+        <button id="btnAgregarVenta" class="botonIng btn btn-light">Agregar Venta</button>
+        <hr>
+        <table id="tabla-lista-ventas" border="2" class="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha de Venta</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
             <!-- Aquí se insertarán dinámicamente las filas de ventas -->
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

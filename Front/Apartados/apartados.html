@@ -3,37 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
+    <title>Apartados</title>
     <script src="apartados.js"></script>
+    <link rel="stylesheet" href="apartados.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
     <div>
-        <nav>
-            <ul>
-                <li><a href="../Pagina principal/principal.html">Inicio</a></li>
-                <li><a href="../Clientes/clientes.html">Clientes</a></li>
-                <li><a href="../inventario/inventario.html">Inventario</a></li>
-                <li><a href="../Ventas/ventas.html">Ventas</a></li>
-                <li><a href="../Apartados/apartados.html">Apartados</a></li>
-            </ul>
-        </nav>
+        <div class="contenido-adicional" id="lista-clientes">
+            <h1 class="titulo">Apartados</h1>
+            <button id="agregar_apartado" class="botonIng btn btn-light" title="Anadir apartado">Añadir apartado</button>
+            <hr>
+            <table class="tabla" border="2" id="tabla-lista-apartados">
+                <thead>
+                   <tr>
+                      <th>ID</th>
+                        <th>Fecha </th>
+                        <th>Fecha Limite </th>
+                        <th>Nombre Ciente</th>
+                        <th>Cantidad Total</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
-    <hr>
-    <h1>Apartados</h1>
-    <div id="lista-clientes">
-        <button id="agregar_apartado" title="Anadir apartado">Añadir apartado</button>
-        <table border="3" id="tabla-lista-apartados">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha </th>
-                    <th>Fecha Limite </th>
-                    <th>Nombre Ciente</th>
-                    <th>Cantidad Total</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    
 </body>
 </html>

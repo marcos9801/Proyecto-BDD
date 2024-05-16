@@ -5,38 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Venta</title>
     <script src="venta_editar.js"></script>
+    <link rel="stylesheet" href="ventas.css">
 </head>
 <body>
-    <div>
-        <nav>
-            <ul>
-                <li><a href="../Pagina principal/principal.html">Inicio</a></li>
-                <li><a href="../Clientes/clientes.html">Clientes</a></li>
-                <li><a href="../Inventario/inventario.html">Inventario</a></li>
-                <li><a href="../Ventas/ventas.html">Ventas</a></li>
-                <li><a href="../Apartados/apartados.html">Apartados</a></li>
-            </ul>
-        </nav>
-    </div>
-    <hr>
-    <h1>Editar Venta</h1>
-    <form>
-        <label for="cliente">Cliente:</label>
-        <select id="cliente" required>
-            <!-- Opciones de clientes se cargarán dinámicamente con JavaScript -->
-        </select>
-        <label for="fecha_venta">Fecha de Venta:</label>
-        <input type="date" id="fecha_venta" required>
-        <label for="total">Total:</label>
-        <input type="number" id="total" step="0.01" required>
-        <h2>Detalles de Venta</h2>
-        <!-- Aquí se agregarán dinámicamente los detalles de venta -->
-        <div id="detalles_venta">
-            <!-- Los detalles se agregarán aquí -->
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
         </div>
-        <button type="button" id="agregar_detalle">Agregar Producto</button>
-        <hr>
-        <button id="botonGuardar">Guardar</button>
-    </form>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+    <div class="contenido-adicional">
+        <h1 class="titulo">Editar Venta</h1>
+        <form class="formulario">
+            <div class="fila">
+                <label class="concepto" for="cliente">Cliente:</label>
+                <select class="entrada" id="cliente" required>
+                <!-- Opciones de clientes se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="fecha_venta">Fecha de Venta:</label>
+                <input class="entrada" type="date" id="fecha_venta" required>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="total">Total:</label>
+                <input class="entrada" type="number" id="total" step="0.01" required>
+            </div>
+            <h2>Detalles de Venta</h2>
+            <br>
+            <!-- Aquí se agregarán dinámicamente los detalles de venta -->
+            <div id="detalles_venta">
+              <!-- Los detalles se agregarán aquí -->
+            </div>
+            <button type="button" class="botonAcep" id="agregar_detalle">Agregar Producto</button>
+            <br>
+            <button class="botonAcep" id="botonGuardar">Guardar</button>
+        </form>
+    </div>
 </body>
 </html>

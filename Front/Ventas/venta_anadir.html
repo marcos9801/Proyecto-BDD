@@ -5,31 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Venta</title>
     <script src="venta_anadir.js"></script>
+    <link rel="stylesheet" href="ventas.css">
 </head>
 <body>
-    <h1>Agregar Venta</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="cliente">Cliente:</label>
-        <select name="cliente" id="cliente">
-            {% for cliente in clientes %}
-                <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <label for="fecha_venta">Fecha de Venta:</label>
-        <input type="date" name="fecha_venta" id="fecha_venta" required>
-        <br>
-        <label for="total">Total:</label>
-        <input type="number" name="total" id="total" step="0.01" required>
-        <br>
-        <h2>Detalle de Venta</h2>
-        <div id="detalle_venta">
-            <!-- Los campos del detalle de venta se agregarán dinámicamente aquí -->
+    <header class="header">
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>
+            <div class="logo">
+                <h1>HECOSS</h1>
+            </div>
+            <nav class="menu">
+                <a href="../Login/login.html">Cerrar sesión</a>
+            </nav>
         </div>
-        <button type="button" onclick="agregarProducto()">Agregar Producto</button>
-        <br><br>
-        <button type="submit">Guardar Venta</button>
-    </form>
+    </header>
+    <div class="capa"></div>
+    <!-- Menú lateral -->
+    <input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../Pagina principal/principal.html">Inicio</a>
+                <a href="../Clientes/clientes.html">Clientes</a>
+                <a href="../Inventario/inventario.html">Catálogo</a>
+                <a href="../Ventas/ventas.html">Ventas</a>
+                <a href="../Apartados/apartados.html">Apartado</a>
+            </nav>
+            <label for="btn-menu">⨉</label>
+        </div>
+    </div>
+    <div class="contenido-adicional">
+        <h1 class="titulo">Agregar Venta</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="fila">
+                <label class="concepto" for="cliente">Cliente:</label>
+                <select class="entrada" name="cliente" id="cliente">
+                    {% for cliente in clientes %}
+                        <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="fila">
+                <label class="concepto" for="fecha_venta">Fecha de Venta:</label>
+                <input class="entrada" type="date" name="fecha_venta" id="fecha_venta" required>
+            </div>
+            
+            <div class="fila">
+                <label class="concepto" for="total">Total:</label>
+                <input class="entrada" type="number" name="total" id="total" step="0.01" required>
+            </div>
+            <br>
+            <h2>Detalles de Venta</h2>
+            <div id="detalle_venta">
+                <!-- Los campos del detalle de venta se agregarán dinámicamente aquí -->
+            </div>
+            <br>
+            <button class="botonAcep" type="button" onclick="agregarProducto()">Agregar Producto</button>
+            <br><br>
+            <button class="botonAcep" type="submit">Guardar Venta</button>
+        </form>
+    </div>
 </body>
 </html>

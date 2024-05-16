@@ -114,6 +114,7 @@ async function obtenerProductos() {
         document.getElementById("categoriaSelect").value = producto.categoria;
         document.getElementById("descripcion").value = producto.descripcion;
         document.getElementById("material").value = producto.material;
+        document.getElementById("imagen").src = producto.imagen;
     }catch(error){
         console.error('Error al obtener productos:', error);
     }
