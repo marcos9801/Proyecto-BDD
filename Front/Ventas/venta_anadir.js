@@ -1,3 +1,13 @@
+var cookies = document.cookie.split(';');
+var cookie = null;
+
+for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.startsWith("token=")) {
+        cookie = cookie.substring("token=".length);
+        break;
+    }
+}
 document.addEventListener("DOMContentLoaded", function() {
     cargarCategorias();
 

@@ -8,6 +8,11 @@ for (var i = 0; i < cookies.length; i++) {
         break;
     }
 }
+boton = document.getElementById('btnAgregarVenta');
+boton.addEventListener('click', function(){
+    location.href = 'venta_anadir.html';
+});
+console.log(cookie);
 obtener_ventas();
 function obtener_ventas(){
         
