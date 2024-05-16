@@ -84,6 +84,7 @@ def modificar_cliente(request):
     estado = request.data.get('estado')
     pais = request.data.get('pais')
     codigo_postal = request.data.get('codigo_postal')
+    print (request.data)
     
     # Actualiza la información del cliente
     cliente.nombre = nombre
@@ -101,9 +102,14 @@ def modificar_cliente(request):
         direccion_existente.codigo_postal = codigo_postal
         direccion_existente.colonia = colonia
         cliente.direccion = direccion_existente
+        direccion_existente.save()
+
     else:
         x=Direccion.objects.create(cliente=cliente, direccion=direccion, ciudad=ciudad, colonia=colonia, estado=estado, pais=pais, codigo_postal=codigo_postal)
         cliente.direccion=x
+        x.save()
+    
+    print(cliente.direccion)
     cliente.save()
         
     return Response({'mensaje': 'Cliente modificado'}, status=status.HTTP_200_OK)

@@ -1,13 +1,16 @@
 from django.http import JsonResponse
 from .models import Producto, Categoria
 from django.shortcuts import get_object_or_404
+
 from rest_framework.authtoken.models import Token
 from rest_framework import status
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, authentication_classes, permission_classes, parser_classes
 from  rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from .serializers import ProductoSerializer
+import os
 from rest_framework.parsers import MultiPartParser, FormParser
 from drf_yasg.utils import swagger_auto_schema
 @swagger_auto_schema(method='GET', responses={200: ProductoSerializer(many=True)})
@@ -78,6 +81,7 @@ def eliminar_producto(request):
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
 def modificar_producto(request):
+    print(request.data['imagen'])
     id=request.data["id"]
     try:
         # Obtener el producto existente
@@ -95,8 +99,6 @@ def modificar_producto(request):
         if "categoria" in request.data:
             categoria = get_object_or_404(Categoria, id=request.data['categoria'])
             producto.categoria = categoria
-        if 'imagen' in request.data:
-            producto.imagen = request.data['imagen']
             
             
         producto.save()
